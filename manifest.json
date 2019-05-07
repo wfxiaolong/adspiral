@@ -1,0 +1,41 @@
+{
+  "name": "Adspiral",
+  "version": "1.0",
+  "description": "I think I could get rid of Kantv's Ad 🏄!",
+  "manifest_version": 2,
+  "icons": {
+    "16": "icons/icon-16.png",
+    "128": "icons/icon-128.png"
+  },
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeContent",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "content_scripts": [  
+    {  
+      "matches": ["*://*.kantv.com/*", "*://*.kantv6.com/*" , "*://*.kannz.com/*"],  
+      "js": ["scripts/kantv.js"]  
+    }  
+  ],
+  "browser_action": {
+    "default_icon": {
+      "19": "icons/icon-19.png",
+      "38": "icons/icon-38.png"
+    },
+    "default_title": "Adspiral",
+    "default_popup": "popup.html"
+  }
+}
